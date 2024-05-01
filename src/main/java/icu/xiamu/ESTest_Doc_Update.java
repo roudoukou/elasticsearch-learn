@@ -10,7 +10,7 @@ import org.elasticsearch.common.xcontent.XContentType;
 
 import java.io.IOException;
 
-public class ESTest_Index_Update {
+public class ESTest_Doc_Update {
     public static void main(String[] args) throws IOException {
         RestHighLevelClient esClient = new RestHighLevelClient(
                 RestClient.builder(new HttpHost("192.168.1.100", 9200, "http"))
