@@ -1,7 +1,12 @@
+package icu.xiamu;
+
 public class User {
     private String name;
     private Integer age;
     private String sex;
+
+    public User() {
+    }
 
     public String getName() {
         return name;

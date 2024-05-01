@@ -1,5 +1,6 @@
+package icu.xiamu;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
-import icu.xiamu.User;
 import org.apache.http.HttpHost;
 import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.action.index.IndexResponse;
@@ -10,10 +11,10 @@ import org.elasticsearch.common.xcontent.XContentType;
 
 import java.io.IOException;
 
-public class ESTest_Doc_Insert {
+public class ESTest_Index_Insert {
     public static void main(String[] args) throws IOException {
         RestHighLevelClient esClient = new RestHighLevelClient(
-                RestClient.builder(new HttpHost("localhost", 9200, "http"))
+                RestClient.builder(new HttpHost("192.168.1.100", 9200, "http"))
         );
 
         // 添加数据
