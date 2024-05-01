@@ -163,7 +163,7 @@ public class ESTest_Doc_Query {
         }*/
 
         // 8.模糊查询
-        /*SearchRequest request = new SearchRequest();
+/*        SearchRequest request = new SearchRequest();
         request.indices("user");
 
         SearchSourceBuilder builder = new SearchSourceBuilder();
