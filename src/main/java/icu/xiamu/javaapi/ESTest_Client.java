@@ -1,4 +1,4 @@
-package icu.xiamu;
+package icu.xiamu.javaapi;
 
 import org.apache.http.HttpHost;
 import org.elasticsearch.client.RestClient;

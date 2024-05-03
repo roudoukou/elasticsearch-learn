@@ -1,4 +1,4 @@
-package icu.xiamu;
+package icu.xiamu.javaapi;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpHost;

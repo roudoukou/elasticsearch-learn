@@ -1,4 +1,4 @@
-package icu.xiamu;
+package icu.xiamu.javaapi;
 
 public class User {
     private String name;
