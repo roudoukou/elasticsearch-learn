@@ -1,0 +1,796 @@
+{
+	"info": {
+		"_postman_id": "22989d8c-99a5-4b13-9955-f555f90b15d9",
+		"name": "ElasticSearch基础操作",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "文档 - 映射关系",
+			"item": [
+				{
+					"name": "索引 - 创建",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{host-xiamu}}/user",
+							"host": [
+								"{{host-xiamu}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "索引 - 映射创建",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"properties\" : {\r\n        \"name\" : {\r\n            \"type\" : \"text\",\r\n            \"index\" : true\r\n        },\r\n        \"sex\" : {\r\n            \"type\" : \"keyword\",\r\n            \"index\" : true\r\n        },\r\n        \"tel\" : {\r\n            \"type\" : \"keyword\",\r\n            \"index\" : false\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host-xiamu}}/user/_mapping",
+							"host": [
+								"{{host-xiamu}}"
+							],
+							"path": [
+								"user",
+								"_mapping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "索引 - 映射查询",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host-xiamu}}/user/_mapping",
+							"host": [
+								"{{host-xiamu}}"
+							],
+							"path": [
+								"user",
+								"_mapping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "文档 - 创建",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"小米\",\r\n    \"sex\" : \"男的\",\r\n    \"tel\" : \"1111\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host-xiamu}}/user/_create/1001",
+							"host": [
+								"{{host-xiamu}}"
+							],
+							"path": [
+								"user",
+								"_create",
+								"1001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "文档 - 查询1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"query\" : {\r\n        \"match\" : {\r\n            \"name\" : \"小\"\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host-xiamu}}/user/_search",
+							"host": [
+								"{{host-xiamu}}"
+							],
+							"path": [
+								"user",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "文档 - 查询2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"query\" : {\r\n        \"match\" : {\r\n            \"sex\" : \"男\"\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host-xiamu}}/user/_search",
+							"host": [
+								"{{host-xiamu}}"
+							],
+							"path": [
+								"user",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "文档 - 查询3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"query\" : {\r\n        \"match\" : {\r\n            \"tel\" : \"1111\"\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host-xiamu}}/user/_search",
+							"host": [
+								"{{host-xiamu}}"
+							],
+							"path": [
+								"user",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api-test",
+			"item": [
+				{
+					"name": "文档 - user - 查询",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host-xiamu}}/user/_search",
+							"host": [
+								"{{host-xiamu}}"
+							],
+							"path": [
+								"user",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "索引 - 创建",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{host-xiamu}}/shopping",
+					"host": [
+						"{{host-xiamu}}"
+					],
+					"path": [
+						"shopping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "索引 - 查询单个",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host-xiamu}}/shopping",
+					"host": [
+						"{{host-xiamu}}"
+					],
+					"path": [
+						"shopping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "索引 - 查询所有",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host-xiamu}}/_cat/indices?v",
+					"host": [
+						"{{host-xiamu}}"
+					],
+					"path": [
+						"_cat",
+						"indices"
+					],
+					"query": [
+						{
+							"key": "v",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "索引 - 删除",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host-xiamu}}/shopping",
+					"host": [
+						"{{host-xiamu}}"
+					],
+					"path": [
+						"shopping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "文档 - 创建",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"小米手机\",\r\n  \"category\": \"小米\",\r\n  \"images\": \"http://www.gulixueyuan.com/xm.jpg\",\r\n  \"price\": 3999.0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host-xiamu}}/shopping/_doc/1001",
+					"host": [
+						"{{host-xiamu}}"
+					],
+					"path": [
+						"shopping",
+						"_doc",
+						"1001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "文档 - 查询单个",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host-xiamu}}/shopping/_doc/1001",
+					"host": [
+						"{{host-xiamu}}"
+					],
+					"path": [
+						"shopping",
+						"_doc",
+						"1001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "文档 - 查询所有",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host-xiamu}}/shopping/_search",
+					"host": [
+						"{{host-xiamu}}"
+					],
+					"path": [
+						"shopping",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "文档 - 全量修改",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"华为手机\",\r\n  \"category\": \"华为\",\r\n  \"images\": \"http://www.gulixueyuan.com/hw.jpg\",\r\n  \"price\": 4999.0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host-xiamu}}/shopping/_doc/1001",
+					"host": [
+						"{{host-xiamu}}"
+					],
+					"path": [
+						"shopping",
+						"_doc",
+						"1001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "文档 - 局部修改",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"doc\": {\r\n    \"price\": \"6999.00\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host-xiamu}}/shopping/_update/1001",
+					"host": [
+						"{{host-xiamu}}"
+					],
+					"path": [
+						"shopping",
+						"_update",
+						"1001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "文档 - 删除",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host-xiamu}}/shopping/_doc/1001",
+					"host": [
+						"{{host-xiamu}}"
+					],
+					"path": [
+						"shopping",
+						"_doc",
+						"1001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "文档 - 条件查询1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host-xiamu}}/shopping/_search?q=category:华为",
+					"host": [
+						"{{host-xiamu}}"
+					],
+					"path": [
+						"shopping",
+						"_search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "category:华为"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "文档 - 条件查询2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"query\": {\r\n    \"match\": {\r\n      \"category\": \"小米\"\r\n    }\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host-xiamu}}/shopping/_search",
+					"host": [
+						"{{host-xiamu}}"
+					],
+					"path": [
+						"shopping",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "文档 - 全查询",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"query\": {\r\n    \"match_all\": {\r\n      \r\n    }\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host-xiamu}}/shopping/_search",
+					"host": [
+						"{{host-xiamu}}"
+					],
+					"path": [
+						"shopping",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "文档 - 分页查询",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\": {\r\n        \"match_all\": {\r\n\r\n        }\r\n    },\r\n    \"from\": 0,\r\n    \"size\": 1,\r\n    \"_source\": [\"title\"],\r\n    \"sort\": {\r\n        \"price\" : \"desc\"\r\n    }\r\n}\r\n\r\n// from是起始位置\r\n// from = (页面 - 1) * 每页数据条数\r\n\r\n// _source是指定当前只查询的字段\r\n// sort是指定需要对某一个字段进行排序操作",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host-xiamu}}/shopping/_search",
+					"host": [
+						"{{host-xiamu}}"
+					],
+					"path": [
+						"shopping",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "文档 - 多条件查询",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\" : {\r\n        \"bool\" : {\r\n            \"should\": [\r\n                {\r\n                    \"match\" : {\r\n                        \"category\" : \"小米\"\r\n                    }\r\n                },\r\n                {\r\n                    \"match\" : {\r\n                        \"category\": \"华为\"\r\n                    }\r\n                }\r\n            ],\r\n            \"filter\" : {\r\n                \"range\" : {\r\n                    \"price\" : {\r\n                        \"gt\" : 3999.0\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host-xiamu}}/shopping/_search",
+					"host": [
+						"{{host-xiamu}}"
+					],
+					"path": [
+						"shopping",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "文档 - 全文检索",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"aggs\" : { // 聚合操作\r\n        \"price_avg\" : { // 名称: 随意取名\r\n            \"avg\" : { // 分组\r\n                \"field\" : \"price\" // 分组字段\r\n            }\r\n        }\r\n    },\r\n    \"size\": 0 // 不查询原数据\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host-xiamu}}/shopping/_search",
+					"host": [
+						"{{host-xiamu}}"
+					],
+					"path": [
+						"shopping",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "文档 - 聚合操作",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\" : {\r\n        \"match_phrase\" : {\r\n            \"category\" : \"小米\"\r\n        }\r\n    },\r\n    \"highlight\": {\r\n        \"fields\": {\r\n            \"category\" : {}\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host-xiamu}}/shopping/_search",
+					"host": [
+						"{{host-xiamu}}"
+					],
+					"path": [
+						"shopping",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "集群 - 状态查询",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:1001/_cluster/health",
+					"host": [
+						"localhost"
+					],
+					"port": "1001",
+					"path": [
+						"_cluster",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "集群 - 查询所有节点",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "192.168.1.100:9201/_cat/nodes",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"100"
+					],
+					"port": "9201",
+					"path": [
+						"_cat",
+						"nodes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "分词 - 分析器",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"analyzer\": \"standard\",\r\n    \"text\": \"Text to analyze\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host-xiamu}}/_analyze",
+					"host": [
+						"{{host-xiamu}}"
+					],
+					"path": [
+						"_analyze"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "分词 - IK分词",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\": \"弗雷尔卓德\",\r\n    \"analyzer\":\"ik_max_word\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host-xiamu}}/_analyze",
+					"host": [
+						"{{host-xiamu}}"
+					],
+					"path": [
+						"_analyze"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "分词 - 自定义分词",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\": \"The quick & brown fox\",\r\n    \"analyzer\": \"my_analyzer\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host-xiamu}}/my_index/_analyze",
+					"host": [
+						"{{host-xiamu}}"
+					],
+					"path": [
+						"my_index",
+						"_analyze"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "文档冲突 - 乐观锁修改",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"doc\": {\r\n    \"price\": \"9999.00\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host-xiamu}}/shopping/_doc/1001",
+					"host": [
+						"{{host-xiamu}}"
+					],
+					"path": [
+						"shopping",
+						"_doc",
+						"1001"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
